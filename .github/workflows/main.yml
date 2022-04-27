@@ -18,8 +18,8 @@ jobs:
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@master
-          with:
-            install: true
+        with:
+          install: true
 
       # Registry login step intentionally missing
 
