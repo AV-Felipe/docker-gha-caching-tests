@@ -34,7 +34,7 @@ jobs:
         with:
           context: .
           builder: ${{ steps.buildx.outputs.name }}
-          file: .dockerdev/Dockerfile.prod
+          file: dockerfile
           push: false # This would be set to true in a real world deployment scenario.
           tags: ${{ steps.prep.outputs.tagged_image }}
           cache-from: type=local,src=/tmp/.buildx-cache
@@ -67,6 +67,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: .dockerdev/Dockerfile.prod
+          file: dockerfile
           push: false
           tags: ${{ steps.prep.outputs.tagged_image }}
