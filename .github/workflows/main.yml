@@ -1,4 +1,4 @@
-ame: Fake deploy with normal Dockerfile
+name: Fake deploy with normal Dockerfile
 on: [push]
 
 jobs:
