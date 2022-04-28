@@ -36,3 +36,9 @@ jobs:
           cache-to: type=gha,mode=max
           tags: |
             base-builder:latest
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: base_image
+          path: /tmp/base_image.tar
