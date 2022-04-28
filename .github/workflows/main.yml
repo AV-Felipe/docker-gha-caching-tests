@@ -59,5 +59,4 @@ jobs:
           file: /Dockerfile
           tags: final_image:latest
           target: builder
-          build-args: BUILDER_IMAGE=base_image:latest
           push: false
