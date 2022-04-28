@@ -4,14 +4,11 @@ ARG BUILDER_IMAGE=builder_cache
 FROM rust:1.60.0 AS builder_cache
 
 # 1. Create a new empty shell project
-#RUN USER=root cargo new --bin docker-test
-#WORKDIR /docker-test
-RUN mkdir src
-RUN echo 'fn main () {}' > /src/main.rs
+COPY . ./
+RUN ls .
+RUN ls ./
 
 # 2. Copy our manifests
-COPY ./Cargo.lock ./Cargo.lock
-COPY ./Cargo.toml ./Cargo.toml
 
 # 3. Build only the dependencies to cache them
 RUN cargo fetch
