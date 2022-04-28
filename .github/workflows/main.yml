@@ -53,4 +53,4 @@ jobs:
       
       -
         name: Build for run
-        run: DOCKER_BUILDKIT=1 docker build -t myapp:$COMMIT_SHA1 --target=builder --build-arg BUILDER_IMAGE=base_image:latest .
+        run: DOCKER_BUILDKIT=1 docker build --target=builder --build-arg BUILDER_IMAGE=base_image:latest .
