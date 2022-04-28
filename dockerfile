@@ -16,11 +16,4 @@ RUN find . ! -path './target*' -exec rm -rf {} \;  || exit 0
 
 FROM builder_cache AS builder
 
-WORKDIR /docker-test
-
-# 4. Now that the dependency is built, copy your source code
-COPY ./src ./src
-
-# 5. Build for release.
-
-RUN cargo build
+RUN ls -a
