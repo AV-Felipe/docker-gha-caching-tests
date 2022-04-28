@@ -7,6 +7,8 @@ FROM rust:1.60.0 AS builder_cache
 COPY . ./
 RUN ls .
 RUN ls ./
+RUN ls ./src
+RUN cat ./src/main.rs
 
 # 2. Copy our manifests
 
