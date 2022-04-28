@@ -23,6 +23,8 @@ jobs:
           tags: base_image:latest
           target: builder_cache
           outputs: type=docker,dest=/tmp/base_image.tar
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       -
         name: Upload artifact
         uses: actions/upload-artifact@v2
@@ -57,3 +59,4 @@ jobs:
           tags: final_image:latest
           target: builder
           build-args: BUILDER_IMAGE=base_image:latest
+          push: false
