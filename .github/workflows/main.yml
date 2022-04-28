@@ -12,6 +12,16 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
+
+      -
+        name: Prepare
+        id: tag
+        run: |
+          TAG=$(echo $GITHUB_SHA | head -c7)
+          IMAGE="build-base"
+          echo ::set-output name=tagged_image::${IMAGE}:${TAG}
+          echo ::set-output name=tag::${TAG}
+
       -
         name: Set up Docker Buildx
         id: buildx
@@ -33,7 +43,7 @@ jobs:
         with:
           context: .
           builder: ${{ steps.buildx.outputs.name }}
-          tags: base_image:latest
+          tags: ${{ steps.tag.outputs.tagged_image }}
           push: false
           target: builder_cache
           outputs: type=docker,dest=/tmp/base_image.tar
