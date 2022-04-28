@@ -53,4 +53,4 @@ jobs:
       
       -
         name: Build for run
-        run: DOCKER_BUILDKIT=1 docker build --target=builder --build-arg BUILDER_IMAGE=base_image:latest .
+        run: DOCKER_BUILDKIT=1 docker build --build-arg BUILDER_IMAGE=base_image:latest .
