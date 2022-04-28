@@ -26,8 +26,6 @@ RUN cargo build
 
 FROM ${BUILDER_IMAGE} AS builder
 
-WORKDIR /app
+RUN ls
+RUN ls ./
 
-COPY . .
-
-RUN cargo build
