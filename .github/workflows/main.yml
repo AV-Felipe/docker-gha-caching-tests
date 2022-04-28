@@ -31,6 +31,7 @@ jobs:
           platforms: linux/amd64
           push: false
           target: builder_cache
+          outputs: type=docker,dest=/tmp/base_image.tar
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
