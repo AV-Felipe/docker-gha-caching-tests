@@ -1,3 +1,5 @@
+ARG BUILDER_IMAGE=builder_cache
+
 # Rust as the base image
 FROM rust:1.60.0 AS builder_cache
 
@@ -15,7 +17,7 @@ RUN cargo build
 RUN find . ! -path './target*' -exec rm -rf {} \;  || exit 0
 #after this last comand, well end with only the target directory on it
 
-FROM builder_cache AS builder
+FROM ${BUILDER_IMAGE} AS builder
 
 WORKDIR /app
 
