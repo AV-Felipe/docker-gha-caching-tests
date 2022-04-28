@@ -13,7 +13,9 @@ COPY ./Cargo.toml ./Cargo.toml
 RUN cargo fetch
 RUN cargo build
 RUN find . ! -path './target*' -exec rm -rf {} \;  || exit 0
+#after this last comand, well end with only the target dir
 
 FROM builder_cache AS builder
 
 RUN ls -a
+RUN ls -a target/
