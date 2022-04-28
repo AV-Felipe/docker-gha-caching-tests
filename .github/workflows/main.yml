@@ -48,3 +48,12 @@ jobs:
         run: |
           docker load --input /tmp/base_image.tar
           docker image ls -a
+      
+      -
+        name: Build for run
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          tags: final_image:latest
+          target: builder
+          build-args: BUILDER_IMAGE=base_image:latest
