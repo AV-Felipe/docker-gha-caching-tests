@@ -28,7 +28,6 @@ jobs:
       - name: Build and export
         uses: docker/build-push-action@v2
         with:
-          context: .
           platforms: linux/amd64
           push: false
           target: builder_cache
