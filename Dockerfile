@@ -6,7 +6,7 @@ FROM rust:1.60.0 AS builder_cache
 # 1. Create a new empty shell project
 #RUN USER=root cargo new --bin docker-test
 #WORKDIR /docker-test
-RUN echo "fn main () {}" > /src/main.rs
+RUN echo 'fn main () {}' > /src/main.rs
 
 # 2. Copy our manifests
 COPY ./Cargo.lock ./Cargo.lock
