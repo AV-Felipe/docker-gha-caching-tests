@@ -33,3 +33,16 @@ COPY --from=builder_cache /app /app
 
 RUN ls
 
+RUN ls /app
+
+RUN ls /app/target
+
+RUN rm -r /app/src
+
+RUN ls /app
+
+COPY ./src /app
+
+RUN ls /app
+
+RUN ls /app/src
