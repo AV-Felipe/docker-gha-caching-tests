@@ -2,14 +2,16 @@
 FROM rust:1.60.0 AS builder_cache
 
 # 1. Create a new empty shell project
-COPY . ./
+WORKDIR /app
+COPY . /app
+RUN ls ..
 RUN ls .
-RUN ls ./
+RUN ls /app
 RUN ls ./src
 RUN cat ./src/main.rs
 RUN rm -r ./src/*
 RUN echo 'fn main () {}' > ./src/main.rs
-RUN ls ./
+RUN ls .
 RUN ls ./src
 RUN cat ./src/main.rs
 
@@ -20,10 +22,14 @@ RUN cat ./src/main.rs
 RUN cargo fetch
 RUN cargo build
 
+RUN ls .
+RUN ls ./target
+
 #after this last comand, well end with only the target directory on it
 
-FROM base_image:latest AS builder
+FROM rust:1.60.0 AS builder
+
+COPY --from=builder_cache /app /app
 
 RUN ls
-RUN ls ./
 
