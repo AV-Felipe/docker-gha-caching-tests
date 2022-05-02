@@ -29,7 +29,7 @@ RUN ls ./target
 
 FROM rust:1.60.0 AS src_builder
 
-COPY --from=builder_cache /app /app
+
 
 RUN ls
 
