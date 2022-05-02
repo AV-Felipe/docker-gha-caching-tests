@@ -44,3 +44,5 @@ COPY ./src /app/src
 RUN ls /app
 
 RUN ls /app/src
+
+RUN cargo build
