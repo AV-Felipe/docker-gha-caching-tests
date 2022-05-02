@@ -27,7 +27,7 @@ RUN ls ./target
 
 #after this last comand, well end with only the target directory on it
 
-FROM rust:1.60.0 AS builder
+FROM rust:1.60.0 AS src_builder
 
 COPY --from=builder_cache /app /app
 

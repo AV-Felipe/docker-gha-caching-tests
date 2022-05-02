@@ -39,14 +39,6 @@ jobs:
           cache-to: type=gha,mode=max
           tags: |
             base-builder:latest
-
-      # enables you to upload your artifacts from your workflow allowing you to share data between jobs
-      # view: https://github.com/marketplace/actions/upload-a-build-artifact
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: base_image
-          path: /tmp/base_image.tar
   
   build-code:
     runs-on: ubuntu-latest
@@ -62,25 +54,12 @@ jobs:
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      
-      # This is the counterpart of the upload-artifact, it allows us to get the uploaded artifacts
-      # view: https://github.com/marketplace/actions/download-a-build-artifact
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: base_image
-          path: /tmp
-      
-      - name: Load image
-        run: |
-          docker load --input /tmp/base_image.tar
-          docker image ls -a
 
       - name: Build with src
         uses: docker/build-push-action@v2
         with:
           platforms: linux/amd64
           push: false
-          target: builder
+          target: src_builder
           tags: |
             src-builder:latest
