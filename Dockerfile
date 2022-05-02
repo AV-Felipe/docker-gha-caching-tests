@@ -45,4 +45,6 @@ RUN ls /app
 
 RUN ls /app/src
 
+WORKDIR /app
+
 RUN cargo build
