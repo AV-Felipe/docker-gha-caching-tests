@@ -37,11 +37,11 @@ RUN ls /app
 
 RUN ls /app/target
 
-RUN rm -r /app/src
+RUN rm -r /app/src/*
 
 RUN ls /app
 
-COPY ./src /app
+COPY ./src /app/src
 
 RUN ls /app
 
