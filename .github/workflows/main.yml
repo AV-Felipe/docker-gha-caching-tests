@@ -76,3 +76,12 @@ jobs:
       
       - name: test show images
         run: docker images
+      
+      - name: test list containers
+        run: docker containers ls
+
+      - name: test run
+        run: docker run --name teste src-builder
+      
+      - name: test list containers
+        run: docker containers ls
