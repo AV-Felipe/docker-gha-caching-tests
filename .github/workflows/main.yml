@@ -78,10 +78,10 @@ jobs:
         run: docker images
       
       - name: test list containers
-        run: docker containers ls
+        run: docker container ls
 
       - name: test run
         run: docker run --name teste src-builder
       
       - name: test list containers
-        run: docker containers ls
+        run: docker container ls
