@@ -70,7 +70,7 @@ jobs:
           target: src_builder
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          outputs: type=docker .
+          outputs: type=docker, dest=.
           tags: |
             src-builder:latest
       
